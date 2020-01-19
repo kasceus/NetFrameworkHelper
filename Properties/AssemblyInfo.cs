@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Net_Framework_Helper")]
+[assembly: AssemblyTitle("NetFrameworkHelper")]
 [assembly: AssemblyDescription("This helper contains extensions and helpers used in .net framework projects")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Kapolei Tech Consulting")]

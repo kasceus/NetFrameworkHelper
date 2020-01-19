@@ -12,8 +12,8 @@
     <ProjectGuid>{2BBDCC17-A318-4919-BB61-2FCD67D6FBFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Net_Framework_Helper</RootNamespace>
-    <AssemblyName>Net_Framework_Helper</AssemblyName>
+    <RootNamespace>NetFrameworkHelper</RootNamespace>
+    <AssemblyName>NetFrameworkHelper</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -29,7 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Net_Framework_Helper.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\NetFrameworkHelper.xml</DocumentationFile>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

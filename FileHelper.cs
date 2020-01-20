@@ -6,7 +6,8 @@ using System.Web.Mvc;
 namespace NetFrameworkHelper
 {
 	/// <summary>
-	/// The FileHelper is used for common file operations
+	/// The FileHelper is used for common file operations.  While most of these are custom string extensions, they
+	/// are used with handling file operations.
 	/// </summary>
 	public static class FileHelper
 	{
@@ -18,6 +19,18 @@ namespace NetFrameworkHelper
 		/// <returns>FileCointentResult</returns>
 		public static FileContentResult FileContentResultFromString(this string pathToFile)
 		{
+			try
+			{
+				FileAttributes attr = File.GetAttributes(pathToFile);
+				if (attr.HasFlag(FileAttributes.Directory))
+				{
+					throw new Exception("The specified path is a directory. Please supply the file name in addition to the file path.");
+				}
+			}
+			catch
+			{
+				throw;
+			}
 			if (File.Exists(pathToFile))
 			{
 				return new FileContentResult(pathToFile.FileBytesFromPath(), pathToFile.GetMimeFromFilePath());
@@ -39,13 +52,14 @@ namespace NetFrameworkHelper
 				FileAttributes attr = File.GetAttributes(pathToFile);
 				if (attr.HasFlag(FileAttributes.Directory))
 				{
-					throw new Exception("The specified path is a directory. Please supply the file name in addition to the file.");
-				}
+					throw new Exception("The specified path is a directory. Please supply the file name in addition to the file path.");
+				}				
 			}
 			catch
 			{
 				throw;
 			}
+			
 			if (File.Exists(pathToFile))
 			{
 				var fileName = Path.GetFileName(pathToFile);

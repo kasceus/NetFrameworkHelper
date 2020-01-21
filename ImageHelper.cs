@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO.Compression;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
-using System.Web;
 
 namespace NetFrameworkHelper
 {
@@ -61,25 +56,71 @@ namespace NetFrameworkHelper
 			if (byteArray == null)
 			{
 				throw new ArgumentNullException(nameof(byteArray), "Byte array was null.");
-			}			
-			using (var ms = new MemoryStream(byteArray))
+			}
+			using (MemoryStream ms = new MemoryStream(byteArray))
 			{
 				return Image.FromStream(ms);
 			}
 		}
-		//public static Image Resize(this Image image, int newWidth)
-		//{
+		/// <summary>
+		/// Resize an image.  Maintains aspect ratio
+		/// </summary>
+		/// <param name="image">Image to apply this to</param>
+		/// <param name="size"> new size parameters</param>
+		/// <returns></returns>
+		public static Image Resize(this Image image, Size size)
+		{
+			if (image == null)
+			{
+				throw new ArgumentNullException(nameof(image), "image passed as null.");
+			}
+			if (size == null)
+			{
+				throw new ArgumentNullException(nameof(size), "Size cannot be null");
+			}
+			int sourceWidth = image.Width;
+			int sourceHeight = image.Height;
+			float nPercentW = size.Width / (float)sourceWidth;
+			float nPercentH = size.Height / (float)sourceHeight;
+			float nPercent;
+			if (nPercentH < nPercentW)
+			{
+				nPercent = nPercentH;
+			}
+			else
+			{
+				nPercent = nPercentW;
+			}
 
-		//}
+			int destWidth = (int)(sourceWidth * nPercent);
+			int destHeight = (int)(sourceHeight * nPercent);
 
+			Bitmap b = new Bitmap(destWidth, destHeight);
+			Graphics g = Graphics.FromImage((Image)b);
+			g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+			g.DrawImage(image, 0, 0, destWidth, destHeight);
+			g.Dispose();
+
+			return (Image)b;
+		}
 	}
 	/// <summary>
 	/// ImageMetaData class. Used to hold basic image meta data for quick access.
 	/// </summary>
 	public class ImageMetaData
 	{
+		/// <summary>
+		/// File name of the image
+		/// </summary>
 		public string ImageName { get; set; }
+		/// <summary>
+		/// File extension of the image
+		/// </summary>
 		public string ImageExtension { get; set; }
+		/// <summary>
+		/// Mime type for the image
+		/// </summary>
 		public string MimeType { get; set; }
 	}
 }

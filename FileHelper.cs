@@ -53,16 +53,16 @@ namespace NetFrameworkHelper
 				if (attr.HasFlag(FileAttributes.Directory))
 				{
 					throw new Exception("The specified path is a directory. Please supply the file name in addition to the file path.");
-				}				
+				}
 			}
 			catch
 			{
 				throw;
 			}
-			
+
 			if (File.Exists(pathToFile))
 			{
-				var fileName = Path.GetFileName(pathToFile);
+				string fileName = Path.GetFileName(pathToFile);
 				return fileName.GetMimeFromFileName();
 			}
 			else

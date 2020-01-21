@@ -15,7 +15,7 @@ namespace NetFrameworkHelper
 		/// <returns>String</returns>
 		public static string Right(this string str, int start)
 		{
-			if (String.IsNullOrEmpty(str))
+			if (string.IsNullOrEmpty(str))
 			{
 				throw new ArgumentNullException(nameof(str), "String cannot be null or empty");
 			}
@@ -33,7 +33,7 @@ namespace NetFrameworkHelper
 		/// <returns>String</returns>
 		public static string Left(this string str, int nCount)
 		{
-			if (String.IsNullOrEmpty(str))
+			if (string.IsNullOrEmpty(str))
 			{
 				throw new ArgumentNullException(nameof(str), "String cannot be null or empty");
 			}
@@ -51,7 +51,7 @@ namespace NetFrameworkHelper
 		/// <returns>String</returns>
 		public static string Mid(this string str, int start)
 		{
-			if (String.IsNullOrEmpty(str))
+			if (string.IsNullOrEmpty(str))
 			{
 				throw new ArgumentNullException(nameof(str), "String cannot be null or empty");
 			}
@@ -71,7 +71,7 @@ namespace NetFrameworkHelper
 		/// <returns>String</returns>
 		public static string Mid(this string str, int start, int stop)
 		{
-			if (String.IsNullOrEmpty(str))
+			if (string.IsNullOrEmpty(str))
 			{
 				throw new ArgumentNullException(nameof(str), "String cannot be null or empty");
 			}

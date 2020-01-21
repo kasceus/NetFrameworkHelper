@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace NetFrameworkHelper
@@ -15,6 +12,10 @@ namespace NetFrameworkHelper
 	/// </summary>
 	public class ValidateAjaxAttribute : ActionFilterAttribute
 	{
+		/// <summary>
+		/// Validates a model that was submitted with Ajax.  Will return a 400 error with a JSON containing the error model.
+		/// </summary>
+		/// <param name="filterContext"></param>
 		public override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
 			if (filterContext == null)

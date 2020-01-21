@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
 namespace NetFrameworkHelper
 {
+	/// <summary>
+	/// Extension methods for handling HttpPostedFileBase files.
+	/// </summary>
 	public static class HttpPostedFileBaseExtensions
 	{
 		/// <summary>

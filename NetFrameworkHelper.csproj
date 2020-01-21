@@ -89,7 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByteArrayExtensions.cs" />
+    <Compile Include="ByteCompression.cs" />
     <Compile Include="CustomActionFilters.cs" />
     <Compile Include="CustomStringExtensions.cs" />
     <Compile Include="FileHelper.cs" />

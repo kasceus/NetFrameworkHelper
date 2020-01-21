@@ -8,7 +8,7 @@ namespace NetFrameworkHelper
 	/// Common byte array extension methods. 
 	/// </summary>
 	/// <remarks>Byte array extension methods specific to Image operations are located in the Image Helper.</remarks>
-	public static class ByteArrayExtensions
+	public static class ByteCompression
 	{
 		/// <summary>
 		/// Compress a byte array using Gzip
